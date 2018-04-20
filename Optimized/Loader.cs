@@ -7,7 +7,7 @@ namespace Optimized
 	{
 		public static List<Datum> LoadAsList(string path)
 		{
-			var rdr = new LineReader(File.ReadAllBytes("I:\\test.csv"));
+			var rdr = new LineReader(File.ReadAllBytes(path));
 
 			var ret = new List<Datum>();
 
@@ -24,7 +24,7 @@ namespace Optimized
 
 		public static Datum[] LoadAsArray(string path)
 		{
-			var rdr = new LineReader(File.ReadAllBytes("I:\\test.csv"));
+			var rdr = new LineReader(File.ReadAllBytes(path));
 
 			var ret = new List<Datum>();
 
