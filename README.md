@@ -16,3 +16,31 @@ WarmupCount=3
 |    Method |     Mean |      Error |    StdDev |
 |---------- |---------:|-----------:|----------:|
 | Optimized | 528.7 ms | 119.290 ms | 6.7401 ms |
+
+
+##自環境のpython6.3で実行した結果
+
+所要時間:0.6166858673095703[sec]
+
+実行したコード
+
+```
+import pandas as pd
+import numpy as np
+import time
+
+
+def multiply_to_int(x, y):
+    return np.where(x > 0, (x * y + 0.0000001).astype(np.int), (x * y - 0.0000001).astype(np.int))
+
+start = time.time()
+
+df = pd.read_csv('i:\\test.csv')
+df['z'] = multiply_to_int(df['x'].values, df['y'].values)
+df_group = df[['a', 'z']].groupby('a').sum()
+df_group['a'] = df_group.index
+df_group[['a', 'z']].to_json('i:\\result.json', orient='records')
+
+end = time.time()
+print(f"所要時間:{end - start}[sec]")
+```
