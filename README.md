@@ -24,7 +24,8 @@ WarmupCount=3
 
 実行したコード
 
-```
+```py
+
 import pandas as pd
 import numpy as np
 import time
@@ -43,4 +44,5 @@ df_group[['a', 'z']].to_json('i:\\result.json', orient='records')
 
 end = time.time()
 print(f"所要時間:{end - start}[sec]")
+
 ```
